@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agumchi.com - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=VT323&family=Annie+Use+Your+Telescope&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #ffbde1;
+        background-image: radial-gradient(#ff85d0 15%, transparent 16%);
+        background-size: 30px 30px;
+        font-family: "Annie Use Your Telescope", cursive;
+        cursor:
+          url("https://cur.cursors-4u.net/symbols/sym-9/sym833.cur"), auto;
+        overflow-x: hidden;
+      }
+      .font-barbie {
+        font-family: "Bubblegum Sans", cursive;
+      }
+      .font-pixel {
+        font-family: "VT323", monospace;
+      }
+      /* --- AGREGA ESTO AL FINAL DE TU ETIQUETA <STYLE> --- */
+
+      /* Animación de flotación suave para las insignias */
+      @keyframes float-slow {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .animate-float-slow {
+        animation: float-slow 3s ease-in-out infinite;
+      }
+      /* Retrasos para que no se muevan todas al mismo tiempo */
+      .delay-1 {
+        animation-delay: 0s;
+      }
+      .delay-2 {
+        animation-delay: 0.5s;
+      }
+      .delay-3 {
+        animation-delay: 1s;
+      }
+      .delay-4 {
+        animation-delay: 1.5s;
+      }
+
+      body {
+        background-color: #ffbde1;
+        background-image: radial-gradient(#ff85d0 15%, transparent 16%);
+        background-size: 20px 20px;
+        font-family: "Annie Use Your Telescope", cursive;
+
+        overflow-x: hidden;
+        overscroll-behavior: none;
+
+        cursor:
+          url("cursores/cursor.png") 0 0,
+          auto;
+      }
+
+      /* Forzar cursor personalizado en TODO lo clickeable */
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      label,
+      .pointer,
+      [role="button"],
+      .cursor-pointer {
+        cursor:
+          url("cursores/pointer.png") 0 0,
+          pointer !important;
+      }
+
+      
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="p-4 md:p-8 flex justify-center min-h-screen">
+    <div
+      class="w-full max-w-6xl bg-white border-8 border-[#FF85D0] rounded-[30px] shadow-[10px_10px_0px_rgba(255,133,208,0.5)] overflow-hidden flex flex-col relative"
+    >
+      <header
+        class="bg-[#FF85D0] p-4 flex flex-col md:flex-row justify-between items-center border-b-8 border-white border-dashed"
+      >
+        <div class="flex items-center gap-2">
+          <span class="text-4xl">👑</span>
+          <h1
+            class="font-barbie text-5xl text-white drop-shadow-[2px_2px_0px_#b01e7d]"
+          >
+            Agumchi<span class="text-[#FFF275]">.com</span>
+          </h1>
+        </div>
+        <nav class="flex flex-wrap gap-2 mt-4 md:mt-0">
+          <a
+            href="index.html"
+            class="bg-[#FFF275] text-[#FF0099] font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-inner transform scale-95 no-underline text-center"
+            >🏠 HOME</a
+          >
+          <a
+            href="diario.html"
+            class="bg-[#9BE1FF] hover:bg-blue-300 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >📖 DIARY</a
+          >
+          <a
+            href="amor.html"
+            class="bg-[#FF0099] hover:bg-pink-600 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >💑 LOVE</a
+          >
+          <a
+            href="musica.html"
+            class="bg-[#D685FF] hover:bg-purple-300 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >🎵 MUSIC</a
+          >
+          <a
+            href="juegos.html"
+            class="bg-[#FF9B9B] hover:bg-red-300 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >🎮 GAMES</a
+          >
+        </nav>
+      </header>
+
+      <div
+        class="flex flex-col md:flex-row flex-1 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]"
+      >
+        <aside
+          class="w-full md:w-1/4 bg-[#FFF0F5] p-6 border-r-4 border-[#FF85D0] border-dashed flex flex-col gap-6"
+        >
+          <div
+            class="bg-white p-2 border-4 border-[#FF85D0] rounded-xl transform -rotate-2 shadow-lg"
+          >
+            <div
+              class="bg-gray-200 h-48 w-full rounded flex items-center justify-center text-pink-300 overflow-hidden"
+            >
+              <img
+                src="img/perfil.jpeg"
+                alt="Agustina"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-center font-barbie text-[#FF0099] mt-2 text-xl">
+              Esta soy yo :33
+            </p>
+          </div>
+          <div
+            class="bg-[#FFF275] p-4 rounded-xl border-4 border-[#FF85D0] shadow-sm"
+          >
+            <h3 class="font-barbie text-[#FF0099] text-lg">✨ MOOD ACTUAL:</h3>
+            <p class="text-xl leading-tight">
+              Necesito lomito y que mi novio me haga muchos mimitos. 🥪💖
+            </p>
+          </div>
+          <div
+            class="bg-white p-3 rounded-xl border-4 border-[#9BE1FF] shadow-[3px_3px_0px_rgba(155,225,255,1)] relative overflow-visible"
+          >
+            <h3
+              class="font-barbie text-[#0099CC] text-lg mb-2 border-b-2 border-blue-100 pb-1"
+            >
+              📊 Estadísticas
+            </h3>
+
+            <div class="mb-2">
+              <div
+                class="flex justify-between font-pixel text-sm text-[#FF0099] mb-0.5"
+              >
+                <span>Nivel de Drama</span>
+                <span>101%</span>
+              </div>
+              <div
+                class="w-full bg-pink-100 rounded-full h-2 border border-[#FF0099]"
+              >
+                <div
+                  class="bg-[#FF0099] h-full rounded-full w-full shadow-inner"
+                ></div>
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <div
+                class="flex justify-between font-pixel text-sm text-blue-500 mb-0.5"
+              >
+                <span>Tanque de Pepsi</span>
+                <span class="animate-pulse text-red-500 text-xs">BAJO!</span>
+              </div>
+              <div
+                class="w-full bg-blue-100 rounded-full h-2 border border-blue-400"
+              >
+                <div
+                  class="bg-blue-500 h-full rounded-full w-[15%] shadow-inner animate-pulse"
+                ></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div
+                class="flex justify-between font-pixel text-sm text-purple-500 mb-0.5"
+              >
+                <span>Ganas de Dormir</span>
+                <span>∞</span>
+              </div>
+              <div
+                class="w-full bg-purple-100 rounded-full h-2 border border-purple-400"
+              >
+                <div
+                  class="bg-[#D685FF] h-full rounded-full w-full shadow-inner"
+                  style="
+                    background-image: linear-gradient(
+                      45deg,
+                      rgba(255, 255, 255, 0.2) 25%,
+                      transparent 25%,
+                      transparent 50%,
+                      rgba(255, 255, 255, 0.2) 50%,
+                      rgba(255, 255, 255, 0.2) 75%,
+                      transparent 75%,
+                      transparent
+                    );
+                    background-size: 0.5rem 0.5rem;
+                  "
+                ></div>
+              </div>
+            </div>
+
+            <div
+              class="text-center mt-2 pt-2 border-t-2 border-dashed border-gray-200 relative"
+            >
+              <button
+                onclick="loveExplosion(this)"
+                class="bg-[#FF0099] hover:bg-[#d60080] text-white font-pixel text-sm px-3 py-1 rounded-full border-2 border-pink-200 shadow-sm transform active:scale-95 transition-all group w-full"
+              >
+                ❤️ I LOVE MY BF
+                <span class="absolute -top-1 -right-1 flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"
+                  ></span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="mt-4 bg-white p-3 rounded-[20px] border-4 border-[#FF85D0] shadow-md relative overflow-hidden group"
+          >
+            <div
+              class="bg-[#2d2d2d] rounded-lg p-1 mb-2 border-2 border-gray-400 h-10 flex items-center overflow-hidden relative shadow-inner"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-10 pointer-events-none"
+              ></div>
+              <marquee
+                scrollamount="4"
+                class="font-pixel text-[#00ff00] text-sm tracking-widest"
+              >
+                🎵 NOW PLAYING: Nigga - Te Quiero 🎵
+              </marquee>
+            </div>
+
+            <div
+              class="flex items-center gap-2 bg-pink-50 rounded-full p-1 border border-pink-200"
+            >
+              <button
+                id="miniPlayerBtn"
+                onclick="toggleMiniPlayer()"
+                class="flex-shrink-0 w-8 h-8 bg-[#FF0099] rounded-full text-white flex items-center justify-center hover:bg-[#d60080] hover:scale-110 transition shadow-sm border-2 border-white cursor-pointer z-10"
+              >
+                ▶
+              </button>
+
+              <div class="flex items-center flex-1 gap-1 pr-2">
+                <span class="text-xs">🔈</span>
+                <input
+                  type="range"
+                  id="volumenSlider"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="setVolume(this.value)"
+                  class="w-full h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer accent-[#FF0099]"
+                />
+              </div>
+            </div>
+
+            <audio id="bgMusic" loop>
+              <source src="audio/cancion.mp3" type="audio/mpeg" />
+              Tu navegador no soporta audio.
+            </audio>
+          </div>
+
+          <script>
+            const audio = document.getElementById("bgMusic");
+            const btn = document.getElementById("miniPlayerBtn");
+
+            // Configurar volumen inicial (0.5 = 50%)
+            audio.volume = 0.5;
+
+            function toggleMiniPlayer() {
+              if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "⏸"; // Icono Pausa
+                btn.classList.add("animate-pulse"); // Efecto visual
+              } else {
+                audio.pause();
+                btn.innerHTML = "▶"; // Icono Play
+                btn.classList.remove("animate-pulse");
+              }
+            }
+
+            function setVolume(valor) {
+              audio.volume = valor;
+            }
+          </script>
+
+          <script>
+            function loveExplosion(btn) {
+              // Sonidos opcionales (descomentar si quisieras sonido)
+              // new Audio('https://www.myinstants.com/media/sounds/pop-sound-effect.mp3').play();
+
+              const rect = btn.getBoundingClientRect();
+              const colors = ["#FF0099", "#FF85D0", "#FFF275", "#9BE1FF"];
+              const emojis = ["💖", "💋", "😍", "💘", "🥰"];
+
+              // Crear 15 corazones flotantes
+              for (let i = 0; i < 15; i++) {
+                const heart = document.createElement("div");
+                heart.innerText =
+                  emojis[Math.floor(Math.random() * emojis.length)];
+                heart.style.position = "fixed";
+                heart.style.left = rect.left + rect.width / 2 + "px";
+                heart.style.top = rect.top + rect.height / 2 + "px";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px";
+                heart.style.pointerEvents = "none"; // Para que no interfiera con el click
+                heart.style.zIndex = "9999";
+                heart.style.transition =
+                  "transform 1s ease-out, opacity 1s ease-out";
+
+                document.body.appendChild(heart);
+
+                // Calcular dirección aleatoria
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 100 + 50;
+                const moveX = Math.cos(angle) * velocity;
+                const moveY = Math.sin(angle) * velocity - 100; // Tendencia a subir
+
+                // Activar animación en el siguiente frame
+                requestAnimationFrame(() => {
+                  heart.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.5)`;
+                  heart.style.opacity = "0";
+                });
+
+                // Limpiar el elemento del DOM después de 1 segundo
+                setTimeout(() => {
+                  heart.remove();
+                }, 1000);
+              }
+            }
+          </script>
+        </aside>
+
+        <main class="w-full md:w-3/4 p-8 relative">
+          <div
+            class="bg-[#FF0099] text-white font-pixel text-xl py-1 px-2 mb-6 rounded border-2 border-white shadow-lg overflow-hidden whitespace-nowrap"
+          >
+            <marquee scrollamount="8">
+              ✨ BIENVENIDOS AL MUNDO SECRETO DE AGUMCHI ✨ SI LEES ESTO ME
+              DEBES UNA PEPSI ✨
+            </marquee>
+          </div>
+
+          <div
+            class="p-6 rounded-[40px] border-4 border-[#FF85D0] shadow-lg mb-8 relative overflow-hidden"
+            style="
+              background-color: #fffef0;
+              background-image: repeating-linear-gradient(
+                transparent,
+                transparent 27px,
+                #91d5ff 27px,
+                #91d5ff 28px
+              );
+              background-attachment: local;
+            "
+          >
+            <span
+              class="absolute top-2 right-4 text-4xl transform -rotate-12 opacity-80 drop-shadow-md"
+              >📌</span
+            >
+
+            <h2 class="font-barbie text-4xl text-[#FF0099] mb-3 relative z-10">
+              Hi! Bienvenid@ internauta 🎀
+            </h2>
+
+            <p
+              class="text-xl md:text-2xl text-gray-700 leading-[28px] relative z-10"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              ¡Hola! Soy <strong class="text-[#FF0099]">Agustina Galo</strong>,
+              pero en <strong>la Internet</strong> me conocen como
+              <strong>Agumchi</strong>. 💻 <br /><br />
+              Este es mi espacio personal donde comparto todo sobre mí: mis
+              amores💕, mis sueños🌠, mis días trabajando en gastronomía🍔, y
+              todas las cosas random, intensas y divertidas que me pasan😎.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-3 items-center relative z-20">
+              <a
+                href="amor.html"
+                class="bg-[#FF85D0] text-white px-5 py-2 rounded-full font-barbie text-lg border-4 border-pink-200 hover:bg-[#ff5bb9] hover:scale-105 transition transform no-underline shadow-sm"
+              >
+                📸 Fotos con mi amorcito
+              </a>
+
+              <div class="relative group">
+                <button
+                  onclick="confirmarAmor(this)"
+                  class="bg-white border-4 border-[#FF85D0] text-[#FF85D0] px-5 py-2 rounded-full font-barbie text-lg hover:bg-pink-50 hover:scale-105 transition transform shadow-sm active:scale-95"
+                >
+                  ¿Pero me amas? 🥺
+                </button>
+                <div
+                  id="love-popup"
+                  class="hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 w-56"
+                >
+                  <div
+                    class="bg-[#FFF275] border-4 border-[#FF0099] p-3 rounded-xl text-center shadow-lg animate-bounce relative font-barbie text-xl text-[#FF0099]"
+                  >
+                    ¡OBVIO QUE TE AMO! 💖😭
+                    <div
+                      class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-[#FF0099]"
+                    ></div>
+                    <div
+                      class="absolute top-full left-1/2 transform -translate-x-1/2 -mt-[4px] w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[7px] border-t-[#FFF275]"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            let isLoveAnimating = false;
+
+            function confirmarAmor(btn) {
+              if (isLoveAnimating) return; // Evita clicks múltiples rápidos
+              isLoveAnimating = true;
+
+              const popup = document.getElementById("love-popup");
+              popup.classList.remove("hidden"); // Muestra el globo
+
+              // Sonido opcional (muy Y2K) - Si quieres activarlo, descomenta la línea de abajo
+              // new Audio('https://www.myinstants.com/media/sounds/wizz_nmT804o.mp3').play();
+
+              // Pequeña vibración en el botón
+              btn.classList.add("animate-wiggle");
+
+              // Ocultar después de 3 segundos
+              setTimeout(() => {
+                popup.classList.add("hidden");
+                btn.classList.remove("animate-wiggle");
+                isLoveAnimating = false;
+              }, 3000);
+            }
+          </script>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div
+              class="bg-[#FFF275] p-4 rounded-xl border-4 border-white shadow-md transform rotate-1 relative overflow-hidden group hover:rotate-0 transition"
+            >
+              <div
+                class="absolute inset-0 border-4 border-red-400 rounded-lg opacity-50 animate-pulse pointer-events-none"
+              ></div>
+
+              <div
+                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-pixel px-2 py-1 rounded-bl-lg animate-bounce"
+              >
+                🚨 URGENTE
+              </div>
+
+              <h3 class="font-barbie text-[#FF0099] text-2xl mb-1">
+                📢 ÚLTIMA NOTICIA
+              </h3>
+              <p
+                class="text-xl text-gray-700 leading-tight"
+                style="font-family: &quot;Architects Daughter&quot;, cursive"
+              >
+                Mis compañeros del trabajo me tiraron ketchup y tuve que lavarme
+                el pelo :D
+              </p>
+            </div>
+
+            <div
+              class="bg-[#D685FF] p-4 rounded-xl border-4 border-white shadow-md transform -rotate-1 hover:rotate-0 transition"
+            >
+              <h3 class="font-barbie text-white text-2xl mb-1">📅 AGENDA</h3>
+              <p
+                class="text-xl text-white leading-tight"
+                style="font-family: &quot;Architects Daughter&quot;, cursive"
+              >
+                Hoy es mi cumpleaños🎂 y voy a festejarlo esta noche con todos
+                mis amigos en Son De Paz ☮️🍔😋
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white p-8 rounded-[30px] border-4 border-[#FF0099] border-dashed shadow-sm relative mt-8 text-center"
+          >
+            <div
+              class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-[#FF0099] text-white font-barbie px-6 py-1 rounded-full border-4 border-white shadow-md text-xl whitespace-nowrap z-10"
+            >
+              🏆 Mis Logros
+            </div>
+
+            <div
+              class="flex justify-center items-center gap-4 md:gap-6 mt-4 flex-wrap"
+            >
+              <div class="group relative">
+                <div
+                  class="w-20 h-20 bg-gradient-to-br from-blue-200 to-blue-400 rounded-2xl border-[3px] border-white shadow-[0_4px_0_#60a5fa] flex items-center justify-center transform hover:scale-110 hover:-rotate-12 transition-all duration-300 cursor-help animate-float-slow delay-1 overflow-hidden"
+                >
+                  <div
+                    class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-20 rounded-t-lg"
+                  ></div>
+                  <img
+                    src="img/pepsi.png"
+                    alt="Pepsi"
+                    class="w-14 h-14 object-contain drop-shadow-sm relative z-10"
+                  />
+                </div>
+                <div
+                  class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 whitespace-nowrap transition-transform group-hover:-translate-y-2"
+                >
+                  <div
+                    class="bg-[#FF0099] text-white font-pixel text-xs px-3 py-1 rounded-full border-2 border-white shadow-sm"
+                  >
+                    Pepsi Lover 🥤
+                  </div>
+                  <div
+                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-[#FF0099] mx-auto"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="group relative">
+                <div
+                  class="w-20 h-20 bg-gradient-to-br from-orange-200 to-amber-400 rounded-2xl border-[3px] border-white shadow-[0_4px_0_#f59e0b] flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300 cursor-help animate-float-slow delay-2 overflow-hidden"
+                >
+                  <div
+                    class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-20 rounded-t-lg"
+                  ></div>
+                  <img
+                    src="img/capibara.png"
+                    alt="Capibara"
+                    class="w-14 h-14 object-contain drop-shadow-sm relative z-10"
+                  />
+                </div>
+                <div
+                  class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 whitespace-nowrap transition-transform group-hover:-translate-y-2"
+                >
+                  <div
+                    class="bg-orange-500 text-white font-pixel text-xs px-3 py-1 rounded-full border-2 border-white shadow-sm"
+                  >
+                    Capibara Fan 🦫
+                  </div>
+                  <div
+                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-orange-500 mx-auto"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="group relative">
+                <div
+                  class="w-20 h-20 bg-gradient-to-br from-yellow-200 to-red-300 rounded-2xl border-[3px] border-white shadow-[0_4px_0_#fda4af] flex items-center justify-center transform hover:scale-110 hover:-rotate-6 transition-all duration-300 cursor-help animate-float-slow delay-3 overflow-hidden"
+                >
+                  <div
+                    class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-20 rounded-t-lg"
+                  ></div>
+                  <img
+                    src="img/lomito.png"
+                    alt="Lomito"
+                    class="w-14 h-14 object-contain drop-shadow-sm relative z-10"
+                  />
+                </div>
+                <div
+                  class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 whitespace-nowrap transition-transform group-hover:-translate-y-2"
+                >
+                  <div
+                    class="bg-red-500 text-white font-pixel text-xs px-3 py-1 rounded-full border-2 border-white shadow-sm"
+                  >
+                    Lomito Enjoyer 🥪
+                  </div>
+                  <div
+                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-red-500 mx-auto"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="group relative">
+                <div
+                  class="w-20 h-20 bg-gradient-to-br from-pink-200 to-pink-400 rounded-2xl border-[3px] border-white shadow-[0_4px_0_#f472b6] flex items-center justify-center transform hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-help animate-float-slow delay-4 overflow-hidden"
+                >
+                  <div
+                    class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-20 rounded-t-lg"
+                  ></div>
+                  <img
+                    src="img/gato.png"
+                    alt="Gatito"
+                    class="w-14 h-14 object-contain drop-shadow-sm relative z-10"
+                  />
+                </div>
+                <div
+                  class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 whitespace-nowrap transition-transform group-hover:-translate-y-2"
+                >
+                  <div
+                    class="bg-pink-500 text-white font-pixel text-xs px-3 py-1 rounded-full border-2 border-white shadow-sm"
+                  >
+                    Kitten Mom 😻
+                  </div>
+                  <div
+                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-pink-500 mx-auto"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="group relative">
+                <div
+                  class="w-20 h-20 bg-gradient-to-br from-purple-300 to-indigo-400 rounded-2xl border-[3px] border-white shadow-[0_4px_0_#818cf8] flex items-center justify-center transform hover:scale-110 hover:-rotate-12 transition-all duration-300 cursor-help animate-float-slow overflow-hidden"
+                  style="animation-delay: 2s"
+                >
+                  <div
+                    class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-20 rounded-t-lg"
+                  ></div>
+                  <img
+                    src="img/novio.png"
+                    alt="Novio"
+                    class="w-14 h-14 object-contain drop-shadow-sm relative z-10"
+                  />
+                </div>
+                <div
+                  class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 whitespace-nowrap transition-transform group-hover:-translate-y-2"
+                >
+                  <div
+                    class="bg-indigo-500 text-white font-pixel text-xs px-3 py-1 rounded-full border-2 border-white shadow-sm"
+                  >
+                    Novio tan capo 💖
+                  </div>
+                  <div
+                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-indigo-500 mx-auto"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <footer
+        class="bg-[#FF85D0] p-2 text-center border-t-4 border-white border-dashed"
+      >
+        <p class="text-white font-pixel text-lg">
+          Hecho con mucho Amor ❤️ Lucas.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // URL del sonido (puedes descargar este archivo y guardarlo como click.mp3)
+      const clickSoundUrl =
+        "https://www.myinstants.com/media/sounds/clicksoundeffect.mp3";
+
+      // Pre-cargar el audio para que no tenga lag
+      const clickAudio = new Audio(clickSoundUrl);
+      clickAudio.volume = 0.5; // Volumen al 50% para que no aturda
+
+      document.addEventListener("click", () => {
+        // Clonar el audio para poder hacer clicks rápidos seguidos
+        const soundClone = clickAudio.cloneNode();
+        soundClone.volume = 0.5;
+        soundClone.play();
+      });
+    </script>
+  </body>
+</html>

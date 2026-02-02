@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agumchi.com - Diario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=VT323&family=Annie+Use+Your+Telescope&family=Architects+Daughter&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #ffbde1;
+        background-image: radial-gradient(#ff85d0 15%, transparent 16%);
+        background-size: 30px 30px;
+        font-family: "Annie Use Your Telescope", cursive;
+        cursor:
+          url("https://cur.cursors-4u.net/symbols/sym-9/sym833.cur"), auto;
+      }
+      .font-barbie {
+        font-family: "Bubblegum Sans", cursive;
+      }
+      .font-pixel {
+        font-family: "VT323", monospace;
+      }
+      /* Scrollbar SOLO para las anécdotas */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 14px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #ffe4f2;
+        border-left: 2px solid #ff85d0;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #ff85d0;
+        border-radius: 10px;
+        border: 3px solid #ffe4f2;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: #ff0099;
+      }
+
+      body {
+        background-color: #ffbde1;
+        background-image: radial-gradient(#ff85d0 15%, transparent 16%);
+        background-size: 20px 20px;
+        font-family: "Annie Use Your Telescope", cursive;
+
+        overflow-x: hidden;
+        overscroll-behavior: none;
+
+        cursor:
+          url("cursores/cursor.png") 0 0,
+          auto;
+      }
+
+      /* Forzar cursor personalizado en TODO lo clickeable */
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      label,
+      .pointer,
+      [role="button"],
+      .cursor-pointer {
+        cursor:
+          url("cursores/pointer.png") 0 0,
+          pointer !important;
+      }
+    </style>
+  </head>
+
+  <body
+    class="p-4 md:p-8 flex justify-center items-center min-h-screen box-border"
+  >
+    <div
+      class="w-full max-w-6xl bg-white border-8 border-[#9BE1FF] rounded-[30px] shadow-[10px_10px_0px_rgba(155,225,255,0.8)] overflow-hidden flex flex-col relative"
+    >
+      <header
+        class="bg-[#9BE1FF] p-4 flex flex-col md:flex-row justify-between items-center border-b-8 border-white border-dashed shrink-0"
+      >
+        <div class="flex items-center gap-2">
+          <span class="text-4xl">📖</span>
+          <h1
+            class="font-barbie text-5xl text-white drop-shadow-[2px_2px_0px_#2a6b8c]"
+          >
+            Secret Diary
+          </h1>
+        </div>
+        <nav class="flex flex-wrap gap-2 mt-4 md:mt-0">
+          <a
+            href="index.html"
+            class="bg-[#FFF275] hover:bg-yellow-300 text-[#FF0099] font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >🏠 HOME</a
+          >
+          <a
+            href="diario.html"
+            class="bg-[#9BE1FF] text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-inner transform scale-95 no-underline text-center"
+            >📖 DIARY</a
+          >
+          <a
+            href="amor.html"
+            class="bg-[#FF0099] hover:bg-pink-600 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >💑 LOVE</a
+          >
+          <a
+            href="musica.html"
+            class="bg-[#D685FF] hover:bg-purple-300 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >🎵 MUSIC</a
+          >
+          <a
+            href="juegos.html"
+            class="bg-[#FF9B9B] hover:bg-red-300 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >🎮 GAMES</a
+          >
+        </nav>
+      </header>
+
+      <div
+        class="flex flex-col md:flex-row bg-[url('https://www.transparenttextures.com/patterns/notebook.png')] relative"
+      >
+        <aside
+          class="w-full md:w-1/4 bg-[#FFF0F5] p-6 border-r-4 border-[#FF85D0] border-dashed flex flex-col gap-6"
+        >
+          <div
+            class="bg-white p-2 border-4 border-[#FF85D0] rounded-xl transform -rotate-2 shadow-lg"
+          >
+            <div
+              class="bg-gray-200 h-48 w-full rounded flex items-center justify-center text-pink-300 overflow-hidden"
+            >
+              <img
+                src="img/perfil.jpeg"
+                alt="Agustina"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-center font-barbie text-[#FF0099] mt-2 text-xl">
+              Esta soy yo :33
+            </p>
+          </div>
+          <div
+            class="bg-[#FFF275] p-4 rounded-xl border-4 border-[#FF85D0] shadow-sm"
+          >
+            <h3 class="font-barbie text-[#FF0099] text-lg">✨ MOOD ACTUAL:</h3>
+            <p class="text-xl leading-tight">
+              Necesito lomito y que mi novio me haga muchos mimitos. 🥪💖
+            </p>
+          </div>
+          <div
+            class="bg-white p-3 rounded-xl border-4 border-[#9BE1FF] shadow-[3px_3px_0px_rgba(155,225,255,1)] relative overflow-visible"
+          >
+            <h3
+              class="font-barbie text-[#0099CC] text-lg mb-2 border-b-2 border-blue-100 pb-1"
+            >
+              📊 Estadísticas
+            </h3>
+
+            <div class="mb-2">
+              <div
+                class="flex justify-between font-pixel text-sm text-[#FF0099] mb-0.5"
+              >
+                <span>Nivel de Drama</span>
+                <span>101%</span>
+              </div>
+              <div
+                class="w-full bg-pink-100 rounded-full h-2 border border-[#FF0099]"
+              >
+                <div
+                  class="bg-[#FF0099] h-full rounded-full w-full shadow-inner"
+                ></div>
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <div
+                class="flex justify-between font-pixel text-sm text-blue-500 mb-0.5"
+              >
+                <span>Tanque de Pepsi</span>
+                <span class="animate-pulse text-red-500 text-xs">BAJO!</span>
+              </div>
+              <div
+                class="w-full bg-blue-100 rounded-full h-2 border border-blue-400"
+              >
+                <div
+                  class="bg-blue-500 h-full rounded-full w-[15%] shadow-inner animate-pulse"
+                ></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div
+                class="flex justify-between font-pixel text-sm text-purple-500 mb-0.5"
+              >
+                <span>Ganas de Dormir</span>
+                <span>∞</span>
+              </div>
+              <div
+                class="w-full bg-purple-100 rounded-full h-2 border border-purple-400"
+              >
+                <div
+                  class="bg-[#D685FF] h-full rounded-full w-full shadow-inner"
+                  style="
+                    background-image: linear-gradient(
+                      45deg,
+                      rgba(255, 255, 255, 0.2) 25%,
+                      transparent 25%,
+                      transparent 50%,
+                      rgba(255, 255, 255, 0.2) 50%,
+                      rgba(255, 255, 255, 0.2) 75%,
+                      transparent 75%,
+                      transparent
+                    );
+                    background-size: 0.5rem 0.5rem;
+                  "
+                ></div>
+              </div>
+            </div>
+
+            <div
+              class="text-center mt-2 pt-2 border-t-2 border-dashed border-gray-200 relative"
+            >
+              <button
+                onclick="loveExplosion(this)"
+                class="bg-[#FF0099] hover:bg-[#d60080] text-white font-pixel text-sm px-3 py-1 rounded-full border-2 border-pink-200 shadow-sm transform active:scale-95 transition-all group w-full"
+              >
+                ❤️ I LOVE MY BF
+                <span class="absolute -top-1 -right-1 flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"
+                  ></span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="mt-4 bg-white p-3 rounded-[20px] border-4 border-[#FF85D0] shadow-md relative overflow-hidden group"
+          >
+            <div
+              class="bg-[#2d2d2d] rounded-lg p-1 mb-2 border-2 border-gray-400 h-10 flex items-center overflow-hidden relative shadow-inner"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-10 pointer-events-none"
+              ></div>
+              <marquee
+                scrollamount="4"
+                class="font-pixel text-[#00ff00] text-sm tracking-widest"
+              >
+                🎵 NOW PLAYING: Nigga - Te Quiero 🎵
+              </marquee>
+            </div>
+
+            <div
+              class="flex items-center gap-2 bg-pink-50 rounded-full p-1 border border-pink-200"
+            >
+              <button
+                id="miniPlayerBtn"
+                onclick="toggleMiniPlayer()"
+                class="flex-shrink-0 w-8 h-8 bg-[#FF0099] rounded-full text-white flex items-center justify-center hover:bg-[#d60080] hover:scale-110 transition shadow-sm border-2 border-white cursor-pointer z-10"
+              >
+                ▶
+              </button>
+
+              <div class="flex items-center flex-1 gap-1 pr-2">
+                <span class="text-xs">🔈</span>
+                <input
+                  type="range"
+                  id="volumenSlider"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="setVolume(this.value)"
+                  class="w-full h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer accent-[#FF0099]"
+                />
+              </div>
+            </div>
+
+            <audio id="bgMusic" loop>
+              <source src="audio/cancion.mp3" type="audio/mpeg" />
+              Tu navegador no soporta audio.
+            </audio>
+          </div>
+
+          <script>
+            const audio = document.getElementById("bgMusic");
+            const btn = document.getElementById("miniPlayerBtn");
+            audio.volume = 0.5;
+            function toggleMiniPlayer() {
+              if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "⏸";
+                btn.classList.add("animate-pulse");
+              } else {
+                audio.pause();
+                btn.innerHTML = "▶";
+                btn.classList.remove("animate-pulse");
+              }
+            }
+            function setVolume(valor) {
+              audio.volume = valor;
+            }
+          </script>
+          <script>
+            function loveExplosion(btn) {
+              const rect = btn.getBoundingClientRect();
+              const emojis = ["💖", "💋", "😍", "💘", "🥰"];
+              for (let i = 0; i < 15; i++) {
+                const heart = document.createElement("div");
+                heart.innerText =
+                  emojis[Math.floor(Math.random() * emojis.length)];
+                heart.style.position = "fixed";
+                heart.style.left = rect.left + rect.width / 2 + "px";
+                heart.style.top = rect.top + rect.height / 2 + "px";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px";
+                heart.style.pointerEvents = "none";
+                heart.style.zIndex = "9999";
+                heart.style.transition =
+                  "transform 1s ease-out, opacity 1s ease-out";
+                document.body.appendChild(heart);
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 100 + 50;
+                const moveX = Math.cos(angle) * velocity;
+                const moveY = Math.sin(angle) * velocity - 100;
+                requestAnimationFrame(() => {
+                  heart.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.5)`;
+                  heart.style.opacity = "0";
+                });
+                setTimeout(() => {
+                  heart.remove();
+                }, 1000);
+              }
+            }
+          </script>
+        </aside>
+
+        <main
+          class="w-full md:w-3/4 p-8 md:absolute md:top-0 md:right-0 md:bottom-0 overflow-y-auto custom-scrollbar"
+        >
+          <div class="text-center mb-8">
+            <h2
+              class="font-barbie text-5xl text-[#FF0099] drop-shadow-sm inline-block bg-white px-6 py-2 rounded-full border-4 border-[#FF0099] transform -rotate-2"
+            >
+              📖 Dear Diary...
+            </h2>
+          </div>
+
+          <article
+            class="bg-[#fff0f5] p-6 rounded-[25px] border-l-8 border-[#D685FF] shadow-md mb-8 relative transform -rotate-1 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 -left-2 bg-[#D685FF] text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm -rotate-3"
+              >CUMPLEAÑOS</span
+            >
+            <h3 class="font-barbie text-2xl text-[#b04ccf]">
+              🎂 Ketchup de Medianoche
+            </h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              Bueno, llegó el día de mi cumpleaños que tanto esperé ✨. A las
+              00:00 mis compañeros del laburo me tiraron ketchup en el pelo y
+              tuve que ir corriendo a lavármelo.
+              <br />Gran forma de recibir mi nuevo año: oliendo a aderezo. 🍅🚿
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">
+              🎂🍅😭🛀
+            </div>
+          </article>
+
+          <article
+            class="bg-white p-6 rounded-[25px] border-l-8 border-[#FF85D0] shadow-md mb-8 relative transform rotate-1 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 -right-2 bg-[#FF0099] text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm rotate-3"
+              >MOMENTO DIVA</span
+            >
+            <h3 class="font-barbie text-2xl text-[#FF0099]">
+              💁‍♀️ Elogio del día
+            </h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              La mamá de la Luxi dijo que tengo el pelo lindo. O sea... ya lo
+              sabía, pero QUE ME LO DIGAN >>>> ✨
+              <br />Me siento potra, inalcanzable.
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">💅💇‍♀️✨</div>
+          </article>
+
+          <article
+            class="bg-[#f0fff4] p-6 rounded-[25px] border-r-8 border-green-400 shadow-md mb-8 relative transform -rotate-1 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 -left-2 bg-green-500 text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm -rotate-3"
+              >AUXILIO</span
+            >
+            <h3 class="font-barbie text-2xl text-green-600">
+              🤢 El Uber radiactivo
+            </h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              Dios, me subí a un Uber y el olor... EL OLOR. Creo que el auto
+              está podrido por dentro o transporta zombis.
+              <br />Socorro, sáquenme de aquí, no respiro.
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">🤢🚗💨</div>
+          </article>
+
+          <article
+            class="bg-white p-6 rounded-[25px] border-t-8 border-[#9BE1FF] shadow-md mb-8 relative transform rotate-2 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 right-10 bg-[#9BE1FF] text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm"
+              >PRODUCTIVA</span
+            >
+            <h3 class="font-barbie text-2xl text-blue-400">
+              ✨ EHHH Q LINDO TODO LIMPITO
+            </h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              Hoy me levanté con energía y limpié toda mi casa. ✨🧹
+              <br />La paz mental que siento al ver el piso brillante no tiene
+              precio. Soy una señora feliz.
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">🧼🧽🏡</div>
+          </article>
+
+          <article
+            class="bg-[#fffbeb] p-6 rounded-[25px] border-l-8 border-[#FFF275] shadow-md mb-8 relative transform -rotate-1 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 -right-2 bg-yellow-400 text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm rotate-6"
+              >CONFESIÓN</span
+            >
+            <h3 class="font-barbie text-2xl text-yellow-600">
+              🧀 Soy un gordo vago
+            </h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              No tenía ganas de ir a comprar (fiaca nivel 1000) y mi novio me
+              trajo 200gr de queso cremoso.
+              <br />Me siento un gordo vago, pero un gordo vago con queso. Te
+              amo mi amor.
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">🧀🤰💕</div>
+          </article>
+
+          <article
+            class="bg-white p-6 rounded-[25px] border-r-8 border-red-400 shadow-md mb-8 relative transform rotate-1 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 left-4 bg-red-500 text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm animate-pulse"
+              >CRISIS</span
+            >
+            <h3 class="font-barbie text-2xl text-red-500">
+              💀 Pantalla Azul de la Muerte
+            </h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              Anoche laburando en la caja de Son de Paz... PUM. La PC se puso
+              azul y se borró TODO el excel de la noche.
+              <br />Una bronca... estuve a esto 👌 de romper el teclado.
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">🤬💻🔥</div>
+          </article>
+
+          <article
+            class="bg-white p-6 rounded-[25px] border-b-8 border-orange-400 shadow-md mb-8 relative transform -rotate-2 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 -right-2 bg-orange-500 text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm"
+              >PLOT TWIST</span
+            >
+            <h3 class="font-barbie text-2xl text-orange-500">🍔 El Sorteo</h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              Gané una hamburguesa en un sorteo. Dato curioso: NO me gustan las
+              hamburguesas.
+              <br />Se la voy a regalar a mi novio porque soy la mejor novia del
+              planeta. De nada, amor.
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">🎁🍔👑</div>
+          </article>
+
+          <article
+            class="bg-[#f0f9ff] p-6 rounded-[25px] border-l-8 border-[#9BE1FF] shadow-md mb-8 relative transform rotate-1 hover:rotate-0 transition duration-300"
+          >
+            <span
+              class="absolute -top-3 right-10 bg-[#FF0099] text-white text-xs font-pixel px-3 py-1 rounded-full border-2 border-white shadow-sm"
+              >AMORCITO</span
+            >
+            <h3 class="font-barbie text-2xl text-[#0099CC]">
+              🍦 Cita de Crema del Cielo
+            </h3>
+            <p
+              class="text-xl text-gray-600 mt-2 leading-snug"
+              style="font-family: &quot;Architects Daughter&quot;, cursive"
+            >
+              Ayer mi novio cayó con heladito de Crema del Cielo cuando salió de
+              laburar (sabe lo que me gusta ☁️💙).
+              <br />Yo le invité pizzitas caseras que hice :3. Plan perfecto.
+            </p>
+            <div class="mt-3 flex justify-end text-3xl opacity-80">🍕🍦👩‍❤️‍👨</div>
+          </article>
+
+          <div class="text-center py-8 opacity-50 font-pixel">
+            <p>--- Fin de las actualizaciones (por ahora) ---</p>
+            <p class="text-xs">Mañana más drama 👋</p>
+          </div>
+        </main>
+      </div>
+      <footer
+        class="bg-[#9BE1FF] p-2 text-center border-t-4 border-white border-dashed shrink-0"
+      >
+        <p class="text-white font-pixel text-lg">© 2026 Agumchi Productions</p>
+      </footer>
+    </div>
+
+    <script>
+      // URL del sonido (puedes descargar este archivo y guardarlo como click.mp3)
+      const clickSoundUrl =
+        "https://www.myinstants.com/media/sounds/clicksoundeffect.mp3";
+
+      // Pre-cargar el audio para que no tenga lag
+      const clickAudio = new Audio(clickSoundUrl);
+      clickAudio.volume = 0.5; // Volumen al 50% para que no aturda
+
+      document.addEventListener("click", () => {
+        // Clonar el audio para poder hacer clicks rápidos seguidos
+        const soundClone = clickAudio.cloneNode();
+        soundClone.volume = 0.5;
+        soundClone.play();
+      });
+    </script>
+  </body>
+</html>

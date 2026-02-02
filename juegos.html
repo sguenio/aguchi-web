@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agumchi.com - Juegos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=VT323&family=Annie+Use+Your+Telescope&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #ffbde1;
+        background-image: radial-gradient(#ff85d0 15%, transparent 16%);
+        background-size: 30px 30px;
+        font-family: "Annie Use Your Telescope", cursive;
+        cursor:
+          url("https://cur.cursors-4u.net/symbols/sym-9/sym833.cur"), auto;
+        overflow-x: hidden;
+        overscroll-behavior: none;
+      }
+      .font-barbie {
+        font-family: "Bubblegum Sans", cursive;
+      }
+      .font-pixel {
+        font-family: "VT323", monospace;
+      }
+
+      /* Estilos del Juego */
+      #game-area {
+        cursor: none;
+        touch-action: none;
+      }
+      .falling-item {
+        position: absolute;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #player {
+        position: absolute;
+        bottom: 10px;
+        user-select: none;
+        transition: left 0.05s linear;
+        filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.3));
+        z-index: 20;
+      }
+
+      body {
+        background-color: #ffbde1;
+        background-image: radial-gradient(#ff85d0 15%, transparent 16%);
+        background-size: 20px 20px;
+        font-family: "Annie Use Your Telescope", cursive;
+
+        overflow-x: hidden;
+        overscroll-behavior: none;
+
+        cursor:
+          url("cursores/cursor.png") 0 0,
+          auto;
+      }
+
+      /* Forzar cursor personalizado en TODO lo clickeable */
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      label,
+      .pointer,
+      [role="button"],
+      .cursor-pointer {
+        cursor:
+          url("cursores/pointer.png") 0 0,
+          pointer !important;
+      }
+    </style>
+  </head>
+  <body class="p-4 md:p-8 flex justify-center min-h-screen">
+    <div
+      class="w-full max-w-6xl bg-white border-8 border-[#FF9B9B] rounded-[30px] shadow-[10px_10px_0px_rgba(255,155,155,0.8)] overflow-hidden flex flex-col relative"
+    >
+      <header
+        class="bg-[#FF9B9B] p-4 flex flex-col md:flex-row justify-between items-center border-b-8 border-white border-dashed"
+      >
+        <div class="flex items-center gap-2">
+          <span class="text-4xl">🎮</span>
+          <h1
+            class="font-barbie text-5xl text-white drop-shadow-[2px_2px_0px_#b01e7d]"
+          >
+            Agumchi Arcade
+          </h1>
+        </div>
+        <nav class="flex flex-wrap gap-2 mt-4 md:mt-0">
+          <a
+            href="index.html"
+            class="bg-[#FFF275] hover:bg-yellow-300 text-[#FF0099] font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >🏠 HOME</a
+          >
+          <a
+            href="diario.html"
+            class="bg-[#9BE1FF] hover:bg-blue-300 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >📖 DIARY</a
+          >
+          <a
+            href="amor.html"
+            class="bg-[#FF0099] hover:bg-pink-600 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >💑 LOVE</a
+          >
+          <a
+            href="musica.html"
+            class="bg-[#D685FF] hover:bg-purple-300 text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-md transition-transform hover:scale-105 no-underline text-center"
+            >🎵 MUSIC</a
+          >
+          <a
+            href="juegos.html"
+            class="bg-[#FF9B9B] text-white font-barbie text-xl px-6 py-2 rounded-full border-4 border-white shadow-inner transform scale-95 no-underline text-center"
+            >🎮 GAMES</a
+          >
+        </nav>
+      </header>
+
+      <div
+        class="flex flex-col md:flex-row flex-1 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]"
+      >
+        <aside
+          class="w-full md:w-1/4 bg-[#FFF0F5] p-6 border-r-4 border-[#FF85D0] border-dashed flex flex-col gap-6"
+        >
+          <div
+            class="bg-white p-2 border-4 border-[#FF85D0] rounded-xl transform -rotate-2 shadow-lg"
+          >
+            <div
+              class="bg-gray-200 h-48 w-full rounded flex items-center justify-center text-pink-300 overflow-hidden"
+            >
+              <img
+                src="img/perfil.jpeg"
+                alt="Agustina"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-center font-barbie text-[#FF0099] mt-2 text-xl">
+              Esta soy yo :33
+            </p>
+          </div>
+          <div
+            class="bg-[#FFF275] p-4 rounded-xl border-4 border-[#FF85D0] shadow-sm"
+          >
+            <h3 class="font-barbie text-[#FF0099] text-lg">✨ MOOD ACTUAL:</h3>
+            <p class="text-xl leading-tight">
+              Necesito lomito y que mi novio me haga muchos mimitos. 🥪💖
+            </p>
+          </div>
+          <div
+            class="bg-white p-3 rounded-xl border-4 border-[#9BE1FF] shadow-[3px_3px_0px_rgba(155,225,255,1)] relative overflow-visible"
+          >
+            <h3
+              class="font-barbie text-[#0099CC] text-lg mb-2 border-b-2 border-blue-100 pb-1"
+            >
+              📊 Estadísticas
+            </h3>
+            <div class="mb-2">
+              <div
+                class="flex justify-between font-pixel text-sm text-[#FF0099] mb-0.5"
+              >
+                <span>Nivel de Drama</span>
+                <span>101%</span>
+              </div>
+              <div
+                class="w-full bg-pink-100 rounded-full h-2 border border-[#FF0099]"
+              >
+                <div
+                  class="bg-[#FF0099] h-full rounded-full w-full shadow-inner"
+                ></div>
+              </div>
+            </div>
+            <div class="mb-2">
+              <div
+                class="flex justify-between font-pixel text-sm text-blue-500 mb-0.5"
+              >
+                <span>Tanque de Pepsi</span>
+                <span class="animate-pulse text-red-500 text-xs">BAJO!</span>
+              </div>
+              <div
+                class="w-full bg-blue-100 rounded-full h-2 border border-blue-400"
+              >
+                <div
+                  class="bg-blue-500 h-full rounded-full w-[15%] shadow-inner animate-pulse"
+                ></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div
+                class="flex justify-between font-pixel text-sm text-purple-500 mb-0.5"
+              >
+                <span>Ganas de Dormir</span>
+                <span>∞</span>
+              </div>
+              <div
+                class="w-full bg-purple-100 rounded-full h-2 border border-purple-400"
+              >
+                <div
+                  class="bg-[#D685FF] h-full rounded-full w-full shadow-inner"
+                  style="
+                    background-image: linear-gradient(
+                      45deg,
+                      rgba(255, 255, 255, 0.2) 25%,
+                      transparent 25%,
+                      transparent 50%,
+                      rgba(255, 255, 255, 0.2) 50%,
+                      rgba(255, 255, 255, 0.2) 75%,
+                      transparent 75%,
+                      transparent
+                    );
+                    background-size: 0.5rem 0.5rem;
+                  "
+                ></div>
+              </div>
+            </div>
+            <div
+              class="text-center mt-2 pt-2 border-t-2 border-dashed border-gray-200 relative"
+            >
+              <button
+                onclick="loveExplosion(this)"
+                class="bg-[#FF0099] hover:bg-[#d60080] text-white font-pixel text-sm px-3 py-1 rounded-full border-2 border-pink-200 shadow-sm transform active:scale-95 transition-all group w-full"
+              >
+                ❤️ I LOVE MY BF
+                <span class="absolute -top-1 -right-1 flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"
+                  ></span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="mt-4 bg-white p-3 rounded-[20px] border-4 border-[#FF85D0] shadow-md relative overflow-hidden group"
+          >
+            <div
+              class="bg-[#2d2d2d] rounded-lg p-1 mb-2 border-2 border-gray-400 h-10 flex items-center overflow-hidden relative shadow-inner"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-1/2 bg-white opacity-10 pointer-events-none"
+              ></div>
+              <marquee
+                scrollamount="4"
+                class="font-pixel text-[#00ff00] text-sm tracking-widest"
+              >
+                🎵 NOW PLAYING: Nigga - Te Quiero 🎵
+              </marquee>
+            </div>
+            <div
+              class="flex items-center gap-2 bg-pink-50 rounded-full p-1 border border-pink-200"
+            >
+              <button
+                id="miniPlayerBtn"
+                onclick="toggleMiniPlayer()"
+                class="flex-shrink-0 w-8 h-8 bg-[#FF0099] rounded-full text-white flex items-center justify-center hover:bg-[#d60080] hover:scale-110 transition shadow-sm border-2 border-white cursor-pointer z-10"
+              >
+                ▶
+              </button>
+              <div class="flex items-center flex-1 gap-1 pr-2">
+                <span class="text-xs">🔈</span>
+                <input
+                  type="range"
+                  id="volumenSlider"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="setVolume(this.value)"
+                  class="w-full h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer accent-[#FF0099]"
+                />
+              </div>
+            </div>
+            <audio id="bgMusic" loop>
+              <source src="audio/cancion.mp3" type="audio/mpeg" />
+              Tu navegador no soporta audio.
+            </audio>
+          </div>
+
+          <script>
+            const audio = document.getElementById("bgMusic");
+            const btn = document.getElementById("miniPlayerBtn");
+            audio.volume = 0.5;
+            function toggleMiniPlayer() {
+              if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "⏸";
+                btn.classList.add("animate-pulse");
+              } else {
+                audio.pause();
+                btn.innerHTML = "▶";
+                btn.classList.remove("animate-pulse");
+              }
+            }
+            function setVolume(valor) {
+              audio.volume = valor;
+            }
+            function loveExplosion(btn) {
+              const rect = btn.getBoundingClientRect();
+              const emojis = ["💖", "💋", "😍", "💘", "🥰", "🥪", "🥤"];
+              for (let i = 0; i < 15; i++) {
+                const heart = document.createElement("div");
+                heart.innerText =
+                  emojis[Math.floor(Math.random() * emojis.length)];
+                heart.style.position = "fixed";
+                heart.style.left = rect.left + rect.width / 2 + "px";
+                heart.style.top = rect.top + rect.height / 2 + "px";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px";
+                heart.style.pointerEvents = "none";
+                heart.style.zIndex = "9999";
+                heart.style.transition =
+                  "transform 1s ease-out, opacity 1s ease-out";
+                document.body.appendChild(heart);
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 100 + 50;
+                const moveX = Math.cos(angle) * velocity;
+                const moveY = Math.sin(angle) * velocity - 100;
+                requestAnimationFrame(() => {
+                  heart.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.5)`;
+                  heart.style.opacity = "0";
+                });
+                setTimeout(() => heart.remove(), 1000);
+              }
+            }
+          </script>
+        </aside>
+
+        <main class="w-full md:w-3/4 p-4 md:p-8 flex flex-col relative">
+          <div class="text-center mb-4">
+            <h2 class="font-barbie text-4xl text-[#FF9B9B] drop-shadow-sm">
+              ✨ MISIÓN: LOMITO & PEPSI ✨
+            </h2>
+            <p class="font-pixel text-gray-500 text-lg">
+              ¡Atrapa la comida rica y evita la saludable!
+            </p>
+          </div>
+
+          <div
+            class="flex justify-between items-end mb-2 px-4 bg-white/50 rounded-t-xl pt-2"
+          >
+            <div class="font-pixel text-2xl text-[#FF0099]">
+              PUNTOS: <span id="score" class="font-bold text-3xl">0</span> /
+              <span id="win-score-display">250</span>
+            </div>
+            <div class="font-pixel text-2xl text-red-500">
+              VIDAS: <span id="lives" class="text-3xl">❤️❤️❤️</span>
+            </div>
+          </div>
+
+          <div
+            id="game-wrapper"
+            class="relative w-full flex-1 min-h-[450px] bg-[#9BE1FF] rounded-b-xl border-4 border-[#FF0099] shadow-inner overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 z-0 bg-cover bg-center opacity-30"
+              style="background-image: url(&quot;img/fondo.jpeg&quot;)"
+            ></div>
+
+            <div
+              id="start-screen"
+              class="absolute inset-0 flex flex-col items-center justify-center bg-white/90 z-30 p-6 text-center"
+            >
+              <h3
+                class="font-barbie text-4xl text-[#FF0099] mb-4 drop-shadow-sm"
+              >
+                ¡Hora de la Cena!
+              </h3>
+              <div
+                class="font-pixel text-xl mb-6 space-y-4 text-gray-700 bg-pink-50 p-4 rounded-xl border-2 border-pink-200"
+              >
+                <p>
+                  🎯 <strong>Meta:</strong> ¡Llega a
+                  <span class="text-[#FF0099] font-bold">250 puntos</span> para
+                  ganar!
+                </p>
+                <div class="flex justify-center gap-4 items-center">
+                  <span>Atrapa:</span>
+                  <img src="img/lomito.png" class="h-10 drop-shadow" />
+                  <img src="img/pepsi.png" class="h-10 drop-shadow" />
+                </div>
+                <div class="flex justify-center gap-4 items-center">
+                  <span>Evita:</span>
+                  <span class="text-3xl">🥦 🥗</span>
+                  <span>(¡Guácala!)</span>
+                </div>
+                <p class="text-sm mt-2 text-gray-500">
+                  👆 Desliza el dedo o usa el mouse para mover a Agumchi.
+                </p>
+              </div>
+              <button
+                onclick="startGame()"
+                class="bg-[#FFF275] text-[#FF0099] font-barbie text-3xl px-10 py-4 rounded-full border-4 border-[#FF0099] shadow-[4px_4px_0px_#FF0099] hover:scale-105 hover:shadow-[2px_2px_0px_#FF0099] hover:translate-y-[2px] transition animate-pulse"
+              >
+                ▶ ¡A COMER!
+              </button>
+            </div>
+
+            <div
+              id="game-over-screen"
+              class="hidden absolute inset-0 flex flex-col items-center justify-center bg-black/85 z-30 text-white p-6 text-center"
+            >
+              <h3 class="font-barbie text-6xl text-red-400 mb-2 drop-shadow">
+                GAME OVER
+              </h3>
+              <p class="font-pixel text-3xl mb-2">
+                Te llenaste de comida saludable 🤢
+              </p>
+              <p class="font-pixel text-2xl mb-8 text-yellow-300">
+                Puntaje Final: <span id="final-score" class="font-bold">0</span>
+              </p>
+              <button
+                onclick="resetGame()"
+                class="bg-[#FF9B9B] text-white font-barbie text-2xl px-8 py-3 rounded-full border-4 border-white hover:bg-pink-400 transition shadow-lg"
+              >
+                🔄 INTENTAR DE NUEVO
+              </button>
+            </div>
+
+            <div
+              id="win-screen"
+              class="hidden absolute inset-0 flex flex-col items-center justify-center bg-[#FF0099]/90 z-30 text-white p-6 text-center"
+            >
+              <h3
+                class="font-barbie text-6xl text-yellow-300 mb-4 drop-shadow-[2px_2px_0px_#000] animate-bounce"
+              >
+                🎉 ¡GANASTE! 🎉
+              </h3>
+              <p class="font-pixel text-3xl mb-4">
+                ¡Panza llena, corazón contento! 💖
+              </p>
+              <div class="flex justify-center gap-4 mb-8">
+                <img
+                  src="img/lomito.png"
+                  class="h-20 drop-shadow-lg animate-pulse"
+                />
+                <img
+                  src="img/pepsi.png"
+                  class="h-20 drop-shadow-lg animate-pulse"
+                  style="animation-delay: 0.2s"
+                />
+              </div>
+              <button
+                onclick="resetGame()"
+                class="bg-[#FFF275] text-[#FF0099] font-barbie text-2xl px-8 py-3 rounded-full border-4 border-white hover:scale-105 transition shadow-lg"
+              >
+                🔄 JUGAR OTRA VEZ
+              </button>
+            </div>
+
+            <div id="game-area" class="absolute inset-0 w-full h-full z-10">
+              <div id="player">
+                <img
+                  src="img/guchi.png"
+                  alt="Agumchi"
+                  class="h-32 w-auto drop-shadow-xl select-none pointer-events-none"
+                />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <footer
+        class="bg-[#FF9B9B] p-2 text-center border-t-4 border-white border-dashed"
+      >
+        <p class="text-white font-pixel text-lg">© 2026 Agumchi Productions</p>
+      </footer>
+    </div>
+
+    <script>
+      const WIN_SCORE = 250;
+      const INITIAL_SPEED = 3;
+      const INITIAL_SPAWN_RATE = 1200;
+
+      const gameArea = document.getElementById("game-area");
+      const player = document.getElementById("player");
+      const scoreEl = document.getElementById("score");
+      const livesEl = document.getElementById("lives");
+      const startScreen = document.getElementById("start-screen");
+      const gameOverScreen = document.getElementById("game-over-screen");
+      const winScreen = document.getElementById("win-screen");
+      const finalScoreEl = document.getElementById("final-score");
+      document.getElementById("win-score-display").innerText = WIN_SCORE;
+
+      let score = 0;
+      let lives = 3;
+      let isPlaying = false;
+      let playerX = 50;
+      let items = [];
+      let spawnTimeout;
+      let currentSpeed = INITIAL_SPEED;
+      let currentSpawnRate = INITIAL_SPAWN_RATE;
+
+      const itemTypes = [
+        { type: "good", img: "img/lomito.png", points: 15, isImage: true },
+        { type: "good", img: "img/lomito.png", points: 15, isImage: true },
+        { type: "good", img: "img/pepsi.png", points: 10, isImage: true },
+        { type: "good", img: "img/pepsi.png", points: 10, isImage: true },
+        { type: "bad", icon: "🥦", points: -5, isImage: false },
+        { type: "bad", icon: "🥗", points: -5, isImage: false },
+        { type: "bad", icon: "🥬", points: -5, isImage: false },
+      ];
+
+      function movePlayer(clientX) {
+        if (!isPlaying) return;
+        const rect = gameArea.getBoundingClientRect();
+        const relativeX = clientX - rect.left;
+        let percent = (relativeX / rect.width) * 100;
+        if (percent < 5) percent = 5;
+        if (percent > 85) percent = 85;
+        playerX = percent;
+        player.style.left = playerX + "%";
+      }
+
+      gameArea.addEventListener("mousemove", (e) => movePlayer(e.clientX));
+      gameArea.addEventListener(
+        "touchmove",
+        (e) => {
+          e.preventDefault();
+          movePlayer(e.touches[0].clientX);
+        },
+        { passive: false },
+      );
+
+      function startGame() {
+        startScreen.classList.add("hidden");
+        gameOverScreen.classList.add("hidden");
+        winScreen.classList.add("hidden");
+        score = 0;
+        lives = 3;
+        items = [];
+        currentSpeed = INITIAL_SPEED;
+        currentSpawnRate = INITIAL_SPAWN_RATE;
+        document.querySelectorAll(".falling-item").forEach((e) => e.remove());
+        clearTimeout(spawnTimeout);
+        updateUI();
+        isPlaying = true;
+        requestAnimationFrame(gameLoop);
+        spawnItem();
+      }
+
+      function resetGame() {
+        gameOverScreen.classList.add("hidden");
+        winScreen.classList.add("hidden");
+        startScreen.classList.remove("hidden");
+        isPlaying = false;
+      }
+
+      function gameOver() {
+        isPlaying = false;
+        gameOverScreen.classList.remove("hidden");
+        finalScoreEl.innerText = score;
+      }
+
+      function gameWin() {
+        isPlaying = false;
+        winScreen.classList.remove("hidden");
+        // Reutilizamos la función de explosión de corazones del aside
+        if (typeof loveExplosion === "function") loveExplosion(winScreen);
+      }
+
+      function updateUI() {
+        scoreEl.innerText = score;
+        let hearts = "";
+        for (let i = 0; i < lives; i++) hearts += "❤️";
+        livesEl.innerText = hearts;
+      }
+
+      function spawnItem() {
+        if (!isPlaying) return;
+        const randomType =
+          itemTypes[Math.floor(Math.random() * itemTypes.length)];
+        const itemEl = document.createElement("div");
+        itemEl.classList.add("falling-item");
+
+        if (randomType.isImage) {
+          const img = document.createElement("img");
+          img.src = randomType.img;
+          img.classList.add(
+            "h-14",
+            "w-auto",
+            "drop-shadow-md",
+            "object-contain",
+          );
+          itemEl.appendChild(img);
+        } else {
+          itemEl.innerText = randomType.icon;
+          itemEl.classList.add("text-5xl");
+        }
+
+        const startX = 5 + Math.random() * 80;
+        itemEl.style.left = startX + "%";
+        itemEl.style.top = "-60px";
+        gameArea.appendChild(itemEl);
+
+        items.push({
+          el: itemEl,
+          x: startX,
+          y: -60,
+          type: randomType.type,
+          points: randomType.points,
+        });
+
+        currentSpeed = INITIAL_SPEED + score * 0.02;
+        let newSpawnRate = INITIAL_SPAWN_RATE - score * 3.5;
+        currentSpawnRate = Math.max(350, newSpawnRate);
+        spawnTimeout = setTimeout(spawnItem, currentSpawnRate);
+      }
+
+      function gameLoop() {
+        if (!isPlaying) return;
+        items.forEach((item, index) => {
+          item.y += currentSpeed;
+          item.el.style.top = item.y + "px";
+          const playerRect = player.getBoundingClientRect();
+          const itemRect = item.el.getBoundingClientRect();
+          const gameHeight = gameArea.clientHeight;
+
+          const marginX = itemRect.width * 0.25;
+          const marginY = itemRect.height * 0.25;
+
+          if (
+            itemRect.bottom - marginY >= playerRect.top + 30 &&
+            itemRect.top + marginY <= playerRect.bottom &&
+            itemRect.right - marginX >= playerRect.left &&
+            itemRect.left + marginX <= playerRect.right
+          ) {
+            handleCollision(item, index);
+          } else if (item.y > gameHeight) {
+            item.el.remove();
+            items.splice(index, 1);
+          }
+        });
+        requestAnimationFrame(gameLoop);
+      }
+
+      function handleCollision(item, index) {
+        item.el.style.transition = "all 0.1s ease-out";
+        item.el.style.transform = "scale(1.5) translateY(-20px)";
+        item.el.style.opacity = "0";
+        setTimeout(() => item.el.remove(), 100);
+        items.splice(index, 1);
+
+        if (item.type === "good") {
+          score += item.points;
+          gameArea.classList.add("bg-green-100/50"); // Feedback sutil
+          setTimeout(() => gameArea.classList.remove("bg-green-100/50"), 100);
+          if (score >= WIN_SCORE) {
+            updateUI();
+            gameWin();
+            return;
+          }
+        } else {
+          lives--;
+          score = Math.max(0, score - 5);
+          gameArea.classList.add("bg-red-200/50"); // Feedback sutil
+          setTimeout(() => gameArea.classList.remove("bg-red-200/50"), 100);
+          if (lives <= 0) {
+            updateUI();
+            gameOver();
+            return;
+          }
+        }
+        updateUI();
+      }
+
+      // URL del sonido (puedes descargar este archivo y guardarlo como click.mp3)
+      const clickSoundUrl =
+        "https://www.myinstants.com/media/sounds/clicksoundeffect.mp3";
+
+      // Pre-cargar el audio para que no tenga lag
+      const clickAudio = new Audio(clickSoundUrl);
+      clickAudio.volume = 0.5; // Volumen al 50% para que no aturda
+
+      document.addEventListener("click", () => {
+        // Clonar el audio para poder hacer clicks rápidos seguidos
+        const soundClone = clickAudio.cloneNode();
+        soundClone.volume = 0.5;
+        soundClone.play();
+      });
+    </script>
+  </body>
+</html>
