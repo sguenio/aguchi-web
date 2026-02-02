@@ -461,9 +461,10 @@
     </div>
 
     <script>
-      const WIN_SCORE = 250;
-      const INITIAL_SPEED = 3;
-      const INITIAL_SPAWN_RATE = 1200;
+      // --- CONFIGURACIÓN HARDCORE ---
+      const WIN_SCORE = 300; 
+      const INITIAL_SPEED = 5; // Velocidad base alta
+      const INITIAL_SPAWN_RATE = 900; // Spawn rápido
 
       const gameArea = document.getElementById("game-area");
       const player = document.getElementById("player");
@@ -475,22 +476,12 @@
       const finalScoreEl = document.getElementById("final-score");
       document.getElementById("win-score-display").innerText = WIN_SCORE;
 
-      // SONIDOS DEL JUEGO
-      // Usamos enlaces CDN confiables.
-      const eatSound = new Audio(
-        "https://www.myinstants.com/media/sounds/munch-sound-effect.mp3",
-      );
-      const damageSound = new Audio(
-        "https://www.myinstants.com/media/sounds/minecraft-damage.mp3",
-      );
-      const winSound = new Audio(
-        "https://www.myinstants.com/media/sounds/final-fantasy-vii-victory-fanfare-1.mp3",
-      );
-      const loseSound = new Audio(
-        "https://www.myinstants.com/media/sounds/spongebob-fail.mp3",
-      );
-
-      // Ajustar volumen para que no explote los oidos
+      // SONIDOS
+      const eatSound = new Audio("https://www.myinstants.com/media/sounds/coin-collect-retro-8-bit-sound-effect.mp3");
+      const damageSound = new Audio("https://www.myinstants.com/media/sounds/minecraft-damage.mp3");
+      const winSound = new Audio("https://www.myinstants.com/media/sounds/final-fantasy-vii-victory-fanfare-1.mp3");
+      const loseSound = new Audio("https://www.myinstants.com/media/sounds/spongebob-fail.mp3");
+      
       eatSound.volume = 0.4;
       damageSound.volume = 0.5;
       winSound.volume = 0.5;
@@ -505,14 +496,16 @@
       let currentSpeed = INITIAL_SPEED;
       let currentSpawnRate = INITIAL_SPAWN_RATE;
 
+      // LISTA CON MÁS ENEMIGOS
       const itemTypes = [
         { type: "good", img: "img/lomito.png", points: 15, isImage: true },
-        { type: "good", img: "img/lomito.png", points: 15, isImage: true },
         { type: "good", img: "img/pepsi.png", points: 10, isImage: true },
-        { type: "good", img: "img/pepsi.png", points: 10, isImage: true },
+        // Muchas verduras para dificultarlo
         { type: "bad", icon: "🥦", points: -5, isImage: false },
         { type: "bad", icon: "🥗", points: -5, isImage: false },
         { type: "bad", icon: "🥬", points: -5, isImage: false },
+        { type: "bad", icon: "🥕", points: -5, isImage: false },
+        { type: "bad", icon: "🍅", points: -5, isImage: false },
       ];
 
       function movePlayer(clientX) {
@@ -527,13 +520,10 @@
       }
 
       gameArea.addEventListener("mousemove", (e) => movePlayer(e.clientX));
-      gameArea.addEventListener(
-        "touchmove",
-        (e) => {
+      gameArea.addEventListener("touchmove", (e) => {
           e.preventDefault();
           movePlayer(e.touches[0].clientX);
-        },
-        { passive: false },
+        }, { passive: false }
       );
 
       function startGame() {
@@ -558,11 +548,8 @@
         winScreen.classList.add("hidden");
         startScreen.classList.remove("hidden");
         isPlaying = false;
-        // Detener sonidos largos si están sonando
-        winSound.pause();
-        winSound.currentTime = 0;
-        loseSound.pause();
-        loseSound.currentTime = 0;
+        winSound.pause(); winSound.currentTime = 0;
+        loseSound.pause(); loseSound.currentTime = 0;
       }
 
       function gameOver() {
@@ -590,20 +577,14 @@
 
       function spawnItem() {
         if (!isPlaying) return;
-        const randomType =
-          itemTypes[Math.floor(Math.random() * itemTypes.length)];
+        const randomType = itemTypes[Math.floor(Math.random() * itemTypes.length)];
         const itemEl = document.createElement("div");
         itemEl.classList.add("falling-item");
 
         if (randomType.isImage) {
           const img = document.createElement("img");
           img.src = randomType.img;
-          img.classList.add(
-            "h-14",
-            "w-auto",
-            "drop-shadow-md",
-            "object-contain",
-          );
+          img.classList.add("h-14", "w-auto", "drop-shadow-md", "object-contain");
           itemEl.appendChild(img);
         } else {
           itemEl.innerText = randomType.icon;
@@ -623,9 +604,11 @@
           points: randomType.points,
         });
 
-        currentSpeed = INITIAL_SPEED + score * 0.02;
-        let newSpawnRate = INITIAL_SPAWN_RATE - score * 3.5;
-        currentSpawnRate = Math.max(350, newSpawnRate);
+        // --- LÓGICA DE DIFICULTAD ---
+        currentSpeed = INITIAL_SPEED + score * 0.05; // Acelera más rápido
+        let newSpawnRate = INITIAL_SPAWN_RATE - score * 4; // Caen más seguido
+        currentSpawnRate = Math.max(200, newSpawnRate); // Límite frenético
+        
         spawnTimeout = setTimeout(spawnItem, currentSpawnRate);
       }
 
@@ -665,13 +648,12 @@
 
         if (item.type === "good") {
           score += item.points;
-          // REPRODUCIR SONIDO DE COMER (Clonamos para permitir sonidos rápidos)
           const sound = eatSound.cloneNode();
           sound.volume = 0.4;
           sound.play();
-
           gameArea.classList.add("bg-green-100/50");
           setTimeout(() => gameArea.classList.remove("bg-green-100/50"), 100);
+          
           if (score >= WIN_SCORE) {
             updateUI();
             gameWin();
@@ -680,13 +662,12 @@
         } else {
           lives--;
           score = Math.max(0, score - 5);
-          // REPRODUCIR SONIDO DE DAÑO
           const sound = damageSound.cloneNode();
           sound.volume = 0.5;
           sound.play();
-
           gameArea.classList.add("bg-red-200/50");
           setTimeout(() => gameArea.classList.remove("bg-red-200/50"), 100);
+          
           if (lives <= 0) {
             updateUI();
             gameOver();
@@ -696,12 +677,10 @@
         updateUI();
       }
 
-      // Sonido de click general (existente)
-      const clickSoundUrl =
-        "https://www.myinstants.com/media/sounds/clicksoundeffect.mp3";
+      // CLICK SOUND GENERAL
+      const clickSoundUrl = "https://www.myinstants.com/media/sounds/clicksoundeffect.mp3";
       const clickAudio = new Audio(clickSoundUrl);
       clickAudio.volume = 0.5;
-
       document.addEventListener("click", () => {
         const soundClone = clickAudio.cloneNode();
         soundClone.volume = 0.5;
@@ -710,5 +689,6 @@
     </script>
   </body>
 </html>
+
 
 
