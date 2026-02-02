@@ -15,10 +15,11 @@
         background-image: radial-gradient(#ff85d0 15%, transparent 16%);
         background-size: 30px 30px;
         font-family: "Annie Use Your Telescope", cursive;
-        cursor:
-          url("https://cur.cursors-4u.net/symbols/sym-9/sym833.cur"), auto;
         overflow-x: hidden;
         overscroll-behavior: none;
+        cursor:
+          url("cursores/cursor.png") 0 0,
+          auto;
       }
       .font-barbie {
         font-family: "Bubblegum Sans", cursive;
@@ -46,20 +47,6 @@
         transition: left 0.05s linear;
         filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.3));
         z-index: 20;
-      }
-
-      body {
-        background-color: #ffbde1;
-        background-image: radial-gradient(#ff85d0 15%, transparent 16%);
-        background-size: 20px 20px;
-        font-family: "Annie Use Your Telescope", cursive;
-
-        overflow-x: hidden;
-        overscroll-behavior: none;
-
-        cursor:
-          url("cursores/cursor.png") 0 0,
-          auto;
       }
 
       /* Forzar cursor personalizado en TODO lo clickeable */
@@ -488,6 +475,27 @@
       const finalScoreEl = document.getElementById("final-score");
       document.getElementById("win-score-display").innerText = WIN_SCORE;
 
+      // SONIDOS DEL JUEGO
+      // Usamos enlaces CDN confiables.
+      const eatSound = new Audio(
+        "https://www.myinstants.com/media/sounds/munch-sound-effect.mp3",
+      );
+      const damageSound = new Audio(
+        "https://www.myinstants.com/media/sounds/minecraft-damage.mp3",
+      );
+      const winSound = new Audio(
+        "https://www.myinstants.com/media/sounds/final-fantasy-vii-victory-fanfare-1.mp3",
+      );
+      const loseSound = new Audio(
+        "https://www.myinstants.com/media/sounds/spongebob-fail.mp3",
+      );
+
+      // Ajustar volumen para que no explote los oidos
+      eatSound.volume = 0.4;
+      damageSound.volume = 0.5;
+      winSound.volume = 0.5;
+      loseSound.volume = 0.5;
+
       let score = 0;
       let lives = 3;
       let isPlaying = false;
@@ -550,18 +558,26 @@
         winScreen.classList.add("hidden");
         startScreen.classList.remove("hidden");
         isPlaying = false;
+        // Detener sonidos largos si están sonando
+        winSound.pause();
+        winSound.currentTime = 0;
+        loseSound.pause();
+        loseSound.currentTime = 0;
       }
 
       function gameOver() {
         isPlaying = false;
         gameOverScreen.classList.remove("hidden");
         finalScoreEl.innerText = score;
+        loseSound.currentTime = 0;
+        loseSound.play();
       }
 
       function gameWin() {
         isPlaying = false;
         winScreen.classList.remove("hidden");
-        // Reutilizamos la función de explosión de corazones del aside
+        winSound.currentTime = 0;
+        winSound.play();
         if (typeof loveExplosion === "function") loveExplosion(winScreen);
       }
 
@@ -649,7 +665,12 @@
 
         if (item.type === "good") {
           score += item.points;
-          gameArea.classList.add("bg-green-100/50"); // Feedback sutil
+          // REPRODUCIR SONIDO DE COMER (Clonamos para permitir sonidos rápidos)
+          const sound = eatSound.cloneNode();
+          sound.volume = 0.4;
+          sound.play();
+
+          gameArea.classList.add("bg-green-100/50");
           setTimeout(() => gameArea.classList.remove("bg-green-100/50"), 100);
           if (score >= WIN_SCORE) {
             updateUI();
@@ -659,7 +680,12 @@
         } else {
           lives--;
           score = Math.max(0, score - 5);
-          gameArea.classList.add("bg-red-200/50"); // Feedback sutil
+          // REPRODUCIR SONIDO DE DAÑO
+          const sound = damageSound.cloneNode();
+          sound.volume = 0.5;
+          sound.play();
+
+          gameArea.classList.add("bg-red-200/50");
           setTimeout(() => gameArea.classList.remove("bg-red-200/50"), 100);
           if (lives <= 0) {
             updateUI();
@@ -670,16 +696,13 @@
         updateUI();
       }
 
-      // URL del sonido (puedes descargar este archivo y guardarlo como click.mp3)
+      // Sonido de click general (existente)
       const clickSoundUrl =
         "https://www.myinstants.com/media/sounds/clicksoundeffect.mp3";
-
-      // Pre-cargar el audio para que no tenga lag
       const clickAudio = new Audio(clickSoundUrl);
-      clickAudio.volume = 0.5; // Volumen al 50% para que no aturda
+      clickAudio.volume = 0.5;
 
       document.addEventListener("click", () => {
-        // Clonar el audio para poder hacer clicks rápidos seguidos
         const soundClone = clickAudio.cloneNode();
         soundClone.volume = 0.5;
         soundClone.play();
